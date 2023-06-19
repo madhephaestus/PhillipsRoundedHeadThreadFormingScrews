@@ -42,12 +42,12 @@ CSG getNut(){
 	headHeight=Double.parseDouble(servoConfig.get("headHeight").toString())
 	keyDepth=Double.parseDouble(servoConfig.get("keyDepth").toString())
 	keySize=Double.parseDouble(servoConfig.get("keySize").toString())
-	outerDiameter=Double.parseDouble(servoConfig.get("outerDiameter").toString())+offset.getMM()
+	outerDiameter=Double.parseDouble(servoConfig.get("drillDiameter").toString())+offset.getMM()
 	if(servoConfig.get("boltLength")!=null)
 		boltLength.setMM(servoConfig.get("boltLength"))
 
 	
-	CSG head =new Cylinder(outerDiameter/2,headDiameter/2,headHeight,(int)facets.getMM()).toCSG() // a one line Cylinder
+	CSG head =new Cylinder(headDiameter/2,headDiameter/2,headHeight,(int)facets.getMM()).toCSG() // a one line Cylinder
 				.toZMin()
 	CSG shaft =new Cylinder(outerDiameter/2,outerDiameter/2,boltLength.getMM(),(int)facets.getMM()).toCSG() // a one line Cylinder
 				.toZMax()
